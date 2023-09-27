@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"guacamole_api/internal/controller"
 	"guacamole_api/internal/router"
 	"log"
@@ -10,8 +11,13 @@ import (
 func main() {
 	app := echo.New()
 
+	app.Use(middleware.Secure())
+	app.Use(middleware.CORS())
+	app.Use(middleware.Logger())
+	app.Use(middleware.Recover())
+
 	c := controller.Controller{
-		Url: "url_adres",
+		Url: "10.101.0.96:8080",
 	}
 
 	r := router.Router{

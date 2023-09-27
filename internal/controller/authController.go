@@ -17,15 +17,13 @@ func (c Controller) AuthTokens(ctx echo.Context) error {
 			Message:    "missing or incorrect information bind",
 		})
 	}
-
 	postBody := url.Values{
 		"username": {ctx.FormValue("username")},
 		"password": {ctx.FormValue("password")},
 	}
-	fmt.Println(c.Url)
 	response, responseError := http.PostForm(fmt.Sprintf("http://%s/guacamole/api/tokens", c.Url), postBody)
-
 	if responseError != nil {
+		fmt.Println(responseError.Error())
 		return ctx.JSON(http.StatusBadRequest, model.ErrorResponse{
 			StatusCode: http.StatusBadRequest,
 			Message:    "missing or incorrect information",
@@ -35,7 +33,7 @@ func (c Controller) AuthTokens(ctx echo.Context) error {
 
 	responseAuthTokens := model.ResponseAuthModel{}
 	json.NewDecoder(response.Body).Decode(&responseAuthTokens)
-
+	fmt.Println(responseAuthTokens)
 	return ctx.JSON(http.StatusOK, model.SuccessResponse{
 		StatusCode: http.StatusOK,
 		Message:    "success response authentication",
