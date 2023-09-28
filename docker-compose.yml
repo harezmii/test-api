@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - "3000:3000"
+
+    deploy:
+      replicas: 3
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - db:/var/lib/postgresql/data
