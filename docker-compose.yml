@@ -2,17 +2,14 @@ version: "3.8"
 
 services:
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-
-    image: images
-
+    image: "api:latest"
+    restart: on-failure
     ports:
       - "3000:3000"
 
     deploy:
-      replicas: 3
+      mode: replicated
+      replicas: 5
       update_config:
         parallelism: 2
         delay: 5s
@@ -29,6 +26,13 @@ services:
       - POSTGRES_PASSWORD=test
     ports:
       - "5432:5432"
+    deploy:
+      mode: replicated
+      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 5s
+        order: stop-first
     networks:
       - gaziNet
 
