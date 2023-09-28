@@ -14,7 +14,7 @@ func (c Controller) Users(ctx echo.Context) error {
 	if responseError != nil {
 		return ctx.JSON(http.StatusBadRequest, model.ErrorResponse{
 			StatusCode: http.StatusOK,
-			Message:    "error response users update",
+			Message:    "error response users",
 		})
 	}
 	return ctx.JSON(http.StatusOK, model.SuccessResponse{
