@@ -50,7 +50,7 @@ func (c Controller) DeleteTokens(ctx echo.Context) error {
 	if err != nil {
 		return ctx.JSON(http.StatusNoContent, model.SuccessResponse{
 			StatusCode: http.StatusNoContent,
-			Message:    "error delete token",
+			Message:    "error delete token ds",
 			Data:       false,
 		})
 	}
