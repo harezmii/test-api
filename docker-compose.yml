@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   api:
-    image: harezmi06/api:latest
+    image: harezmi06/api:slim
     restart: on-failure
     ports:
       - "3000:3000"
