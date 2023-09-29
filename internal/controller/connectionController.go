@@ -15,7 +15,7 @@ func (c Controller) GetConnections(ctx echo.Context) error {
 	if responseError != nil {
 		return ctx.JSON(http.StatusOK, model.ErrorResponse{
 			StatusCode: http.StatusOK,
-			Message:    "error response get connections",
+			Message:    "error response get connections ali",
 		})
 	}
 	var d interface{}
