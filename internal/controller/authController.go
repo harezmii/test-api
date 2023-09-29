@@ -14,7 +14,7 @@ func (c Controller) AuthTokens(ctx echo.Context) error {
 	if ctx.FormValue("username") == "" || ctx.FormValue("password") == "" {
 		return ctx.JSON(http.StatusBadRequest, model.ErrorResponse{
 			StatusCode: http.StatusBadRequest,
-			Message:    "missing or incorrect information bind lo",
+			Message:    "missing or incorrect information bind lo de",
 		})
 	}
 	postBody := url.Values{
@@ -26,7 +26,7 @@ func (c Controller) AuthTokens(ctx echo.Context) error {
 		fmt.Println(responseError.Error())
 		return ctx.JSON(http.StatusBadRequest, model.ErrorResponse{
 			StatusCode: http.StatusBadRequest,
-			Message:    "missing or incorrect information",
+			Message:    "missing or incorrect information up",
 		})
 	}
 	defer response.Body.Close()
