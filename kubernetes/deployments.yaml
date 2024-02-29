@@ -2,9 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-api-deployment
+  labels:
+    app: test-api
 spec:
   replicas: 2
   template:
+    selector:
+      matchLabels:
+        app: test-api
+    metadata:
+      labels:
+        app: test-api
     spec:
       containers:
       - name: test-api-image
