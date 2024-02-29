@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: test-api-deployment
+  namespace: default
   labels:
     app: test-api
 spec:
@@ -21,4 +22,4 @@ spec:
           - containerPort: 8080
 
       imagePullSecrets:
-      - name: regcred
+        - name: regcred
