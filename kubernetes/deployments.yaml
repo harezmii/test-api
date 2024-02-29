@@ -17,8 +17,6 @@ spec:
       containers:
       - name: test-api-image
         image: postgres
-        ports:
-          - containerPort: 5432
 
       imagePullSecrets:
       - name: regcred
