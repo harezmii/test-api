@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-api-deployment
+  labels:
+    app: test-api
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: test-api
+    spec:
+      containers:
+      - name: test-api-image
+        image: kubernetes-test-image/test-api:latest
+        ports:
+          - containerPort: 8080
+
+      imagePullSecrets:
+      - name: regcred
