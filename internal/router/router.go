@@ -11,6 +11,7 @@ type Router struct {
 }
 
 func (r Router) RouteSetups() {
+	r.TestRoute()
 	r.GetTokens()
 	r.DeleteTokens()
 	r.GetConnections()
