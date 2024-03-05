@@ -12,7 +12,7 @@ import (
 func (c Controller) TestPath(ctx echo.Context) error {
 	return ctx.JSON(http.StatusOK, model.SuccessResponse{
 		StatusCode: http.StatusOK,
-		Message:    "v6",
+		Message:    "v7",
 	})
 }
 func (c Controller) AuthTokens(ctx echo.Context) error {
