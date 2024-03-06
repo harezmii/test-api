@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: test-api-image
-        image: 10.252.0.103:8082/kubernetes-test-image/test-api:v9
+        image: 10.252.0.103:8082/kubernetes-test-image/test-api:v10
         ports:
           - containerPort: 8080
 
