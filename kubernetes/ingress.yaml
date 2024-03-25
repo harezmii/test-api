@@ -4,9 +4,10 @@ metadata:
   name: test-api-server-http-ingress
   namespace: default
   annotations:
-    haproxy.org/server-ssl: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
-  ingressClassName: haproxy
+  ingressClassName: nginx
   rules:
     - http:
         paths:
